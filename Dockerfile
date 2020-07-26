@@ -14,6 +14,7 @@ RUN mkdir -p /root/.config/rclone
 
 # icopy
 LABEL version="0.2.0-beta.6"
+ENV LANG=C.UTF-8
 RUN git clone https://github.com/fxxkrlab/iCopy.git
 RUN chmod +x iCopy/iCopy.py
 RUN pip3 install -r iCopy/requirements.txt
