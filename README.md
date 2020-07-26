@@ -8,20 +8,16 @@
 
 对于新手推荐使用一键安装脚本
 
-```shell
+```sh
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
 
 ### 建立配置文件
 
+创建一个 `.env` 文件，键入以下配置，其中除 `SA_GIT_URL` 为 sa 文件的 git 地址外，其他均等同于 iCopy 配置文件
+
 ```shell
-vim .env
-```
-
-建入一下配置，其中除 `SA_GIT_URL` 为 sa 文件的 git 地址外，其他均等同于 iCopy 配置文件
-
-```env
 SA_GIT_URL=https://<name>:<password>@github.com/<name>/<repository>
 
 TG_TOKEN=123456:abcdefg
@@ -42,6 +38,6 @@ MIN_SLEEP=1ms
 
 ### 启动
 
-```shell
+```sh
 docker run -d --env-file .env baranwang/icopy:latest
 ```
