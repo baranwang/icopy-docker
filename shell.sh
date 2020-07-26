@@ -25,7 +25,7 @@ db_name = '${DB_NAME}'
 db_user = '${DB_USER}'
 db_passwd = '${DB_PASSWD}'
 [general]
-language = '${LANGUAGE}'
+language = '${BOT_LANGUAGE}'
 cloner = 'fclone'
 option = 'copy'
 remote = 'gc'
