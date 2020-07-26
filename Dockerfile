@@ -13,9 +13,11 @@ RUN unzip -j fclone*.zip -d /usr/bin && chmod 0755 /usr/bin/fclone
 RUN mkdir -p /root/.config/rclone
 
 # icopy
-LABEL version="0.2.0-beta.6"
 ENV LANG=C.UTF-8
-RUN git clone https://github.com/fxxkrlab/iCopy.git
+ENV ICOPY_VERSION=v0.2.0-beta.5.1
+RUN wget https://github.com/fxxkrlab/iCopy/archive/${ICOPY_VERSION}.zip
+RUN unzip ${ICOPY_VERSION}.zip
+RUN mv iCopy-* iCopy
 RUN chmod +x iCopy/iCopy.py
 RUN pip3 install -r iCopy/requirements.txt
 
