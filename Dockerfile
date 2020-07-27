@@ -22,5 +22,5 @@ RUN chmod +x iCopy/iCopy.py
 RUN pip3 install -r iCopy/requirements.txt
 
 # run
-COPY shell.sh .
+COPY icopy.sh .
 CMD ["sh", "icopy.sh"]
