@@ -1,19 +1,23 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
-if [ $SA_GIT_URL ]; then
-  git clone $(echo ${SA_GIT_URL}) accounts
-  cd accounts
-  SA_FILE=$(ls | head -1)
-  # 生成 fclone 配置文件
-  echo "
+case $SA_TYPE in
+"git")
+  git clone ${SA_GIT_URL} accounts
+  break
+  ;;
+esac
+cd /app/accounts/
+SA_FILE=$(ls | head -1)
+# 生成 fclone 配置文件
+echo "
 [gc]
 type = drive
 scope = drive
 service_account_file = /app/accounts/${SA_FILE}
 service_account_file_path = /app/accounts/
 " >/root/.config/rclone/rclone.conf
-  # 生成 iCopy 配置文件
-  echo "
+# 生成 iCopy 配置文件
+echo "
 [tg]
 token = '${TG_TOKEN}'
 usr_id = '${TG_ID}'
@@ -35,6 +39,5 @@ min_sleep = '${MIN_SLEEP}'
 sa_path = '/app/accounts'
 run_args = ['-P', '--ignore-checksum' , '--stats=1s']
   " >/app/iCopy/config/conf.toml
-  cd /app/iCopy/
-  python3 iCopy.py
-fi
+cd /app/iCopy/
+python3 iCopy.py
