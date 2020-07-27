@@ -42,7 +42,7 @@ MIN_SLEEP=1ms
 docker run -d --env-file .env baranwang/icopy:latest
 ```
 
-## 懒人方法
+## 👶 懒人方法
 
 ```sh
 wget https://git.io/JJ0V7 -O icopy.sh && bash ./icopy.sh
