@@ -1,5 +1,13 @@
 #!/bin/bash
 
+set -e
+
+echo "检查依赖环境"
+if !(docker -v); then
+  echo '开始安装 Docker'
+  curl -sSL https://get.docker.com/ | sh
+fi
+
 echo "选择运行版本"
 select version_type in "最新版本" "指定版本"; do
   case $version_type in
@@ -118,7 +126,6 @@ MIN_SLEEP=$MIN_SLEEP
 " >icopy-docker.env
 fi
 
-set -e
 docker pull baranwang/icopy:${docker_version}
 docker stop icopy && docker rm icopy
 case $SA_TYPE in
