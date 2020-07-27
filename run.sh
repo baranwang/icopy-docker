@@ -137,11 +137,12 @@ clear
 echo '正在启动镜像…'
 case $SA_TYPE in
 "local")
-  docker run -it --name=icopy --env-file icopy-docker.env -v ${SA_DIR}:/app/accounts baranwang/icopy:${docker_version}
+  docker run -d --name=icopy --env-file icopy-docker.env -v ${SA_DIR}:/app/accounts baranwang/icopy:${docker_version}
   break
   ;;
 "git")
-  docker run -it --name=icopy --env-file icopy-docker.env baranwang/icopy:${docker_version}
+  docker run -d --name=icopy --env-file icopy-docker.env baranwang/icopy:${docker_version}
   break
   ;;
 esac
+echo 'iCopy 已启动，Enjoy~'
