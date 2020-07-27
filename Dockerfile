@@ -14,7 +14,7 @@ RUN mkdir -p /root/.config/rclone
 
 # icopy
 ENV LANG=C.UTF-8
-ENV ICOPY_VERSION=v0.2.0-beta.5.1
+ENV ICOPY_VERSION=v0.2.0-beta.6.1
 RUN wget https://github.com/fxxkrlab/iCopy/archive/${ICOPY_VERSION}.zip
 RUN unzip ${ICOPY_VERSION}.zip
 RUN mv iCopy-* iCopy
