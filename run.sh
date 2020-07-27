@@ -2,12 +2,14 @@
 
 set -e
 
-echo "检查依赖环境"
+clear
+echo "检查依赖环境…"
 if !(docker -v); then
   echo '开始安装 Docker'
   curl -sSL https://get.docker.com/ | sh
 fi
 
+clear
 echo "选择运行版本"
 select version_type in "最新版本" "指定版本"; do
   case $version_type in
@@ -126,8 +128,13 @@ MIN_SLEEP=$MIN_SLEEP
 " >icopy-docker.env
 fi
 
+clear
+
+echo '正在拉取镜像…'
 docker pull baranwang/icopy:${docker_version}
 docker stop icopy && docker rm icopy
+clear
+echo '正在启动镜像…'
 case $SA_TYPE in
 "local")
   docker run -it --name=icopy --env-file icopy-docker.env -v ${SA_DIR}:/app/accounts baranwang/icopy:${docker_version}
