@@ -20,7 +20,7 @@ select version_type in "最新版本" "指定版本"; do
   "指定版本")
     clear
     echo "选择运行版本"
-    select docker_version in '0.2.0-beta.6.4' '0.2.0-beta.6.3'; do
+    select docker_version in '0.2.0-beta.6.5' '0.2.0-beta.6.4' '0.2.0-beta.6.3'; do
       break
     done
     break
@@ -138,11 +138,9 @@ echo '正在启动镜像…'
 case $SA_TYPE in
 "local")
   docker run -d --name=icopy --env-file icopy-docker.env -v ${SA_DIR}:/app/accounts baranwang/icopy:${docker_version}
-  break
   ;;
 "git")
   docker run -d --name=icopy --env-file icopy-docker.env baranwang/icopy:${docker_version}
-  break
   ;;
 esac
 echo 'iCopy 已启动，Enjoy~'
