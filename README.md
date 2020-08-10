@@ -18,6 +18,7 @@ sudo sh get-docker.sh
 创建一个 `.env` 文件，键入以下配置，其中除 `SA_GIT_URL` 为 sa 文件的 git 地址外，其他均等同于 iCopy 配置文件
 
 ```shell
+SA_TYPE=git
 SA_GIT_URL=https://<name>:<password>@github.com/<name>/<repository>
 
 TG_TOKEN=123456:abcdefg
