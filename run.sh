@@ -143,4 +143,4 @@ case $SA_TYPE in
   docker run -d --name=icopy --env-file icopy-docker.env baranwang/icopy:${docker_version}
   ;;
 esac
-echo 'iCopy 已启动，Enjoy~'
+echo 'iCopy Docker 版已启动，Enjoy~'
