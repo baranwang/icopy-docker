@@ -38,6 +38,9 @@ parallel_t = '${PARALLEL_TRANSFERS}'
 min_sleep = '${MIN_SLEEP}'
 sa_path = '/app/accounts'
 run_args = ['-P', '--ignore-checksum' , '--stats=1s']
+[web]
+dashboard = 0
+port = 8000
   " >/app/iCopy/config/conf.toml
 cd /app/iCopy/
 python3 iCopy.py
